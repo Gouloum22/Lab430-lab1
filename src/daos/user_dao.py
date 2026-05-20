@@ -42,15 +42,21 @@ class UserDAO:
 
     def update(self, user):
         """ Update given user in MySQL """
-        pass
+        self.cursor.execute( 
+            "UPDATE users SET email= %s, name= %s where id = %s",
+            (user.email, user.name, user.id)
+        )
 
     def delete(self, user_id):
         """ Delete user from MySQL with given user ID """
-        pass
+        self.cursor.execute( 
+            "DELETE FROM users where id = %s",
+            (user_id,)
+        )
 
     def delete_all(self): # extra
         """ Empty users table in MySQL """
-        pass
+        self.cursor.execute("DELETE FROM users")
         
     def close(self):
         self.cursor.close()

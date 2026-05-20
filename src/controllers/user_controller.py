@@ -18,6 +18,18 @@ class UserController:
         """ Create a new user based on user inputs """
         self.dao.insert(user)
 
+    def update_user(self, user):
+        """ Update a user based on user inputs """
+        self.dao.update(user)
+        
+    def delete_user(self, user):
+        """ Delete a user based on user inputs """
+        self.dao.delete(user)
+    
+    def delete_all_user(self):
+        """ Delete all users """
+        self.dao.delete_all()
+
     def shutdown(self):
         """ Close database connection """
         self.dao.close()
